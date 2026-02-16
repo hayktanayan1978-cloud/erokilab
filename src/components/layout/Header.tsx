@@ -15,7 +15,7 @@ const Header = () => {
           {/* Logo */}
           <Link to={localePath("/")} className="flex items-center gap-3 -ml-2">
             <img src={logo} alt="ErokiLab" className="h-14 lg:h-16 w-auto rounded" />
-            <span className="font-heading text-lg lg:text-xl font-bold text-foreground tracking-tight">
+            <span className="font-heading text-lg lg:text-xl font-bold text-foreground tracking-tight -ml-1">
               EROKI<span className="text-accent">LAB</span>
             </span>
           </Link>
