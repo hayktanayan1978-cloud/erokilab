@@ -40,7 +40,7 @@ const RegistrationPage = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="max-w-3xl">
-              <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-4">ErokiLab</p>
+              <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-4">EROKILAB REGISTRATION</p>
               <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground leading-tight mb-6">
                 {t("reg.hero.headline")}
               </h1>
