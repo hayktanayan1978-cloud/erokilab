@@ -13,7 +13,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link to={localePath("/")} className="flex items-center gap-3 mb-4">
-              <img src={logo} alt="ErokiLab" className="h-10 w-auto rounded" />
+              <img src={logo} alt="ErokiLab" className="h-14 w-auto rounded" />
               <span className="font-heading text-lg font-bold text-foreground">
                 EROKI<span className="text-accent">LAB</span>
               </span>
