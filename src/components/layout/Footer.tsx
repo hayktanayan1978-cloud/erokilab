@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
-import logo from "@/assets/logo-erokilab.jpeg";
+import logo from "@/assets/logo-erokilab.png";
 
 const Footer = () => {
   const { t, localePath } = useLanguage();

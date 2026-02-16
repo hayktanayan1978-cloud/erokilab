@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import logo from "@/assets/logo-erokilab.jpeg";
+import logo from "@/assets/logo-erokilab.png";
 
 const Header = () => {
   const { t, lang, setLang, languages, localePath } = useLanguage();
