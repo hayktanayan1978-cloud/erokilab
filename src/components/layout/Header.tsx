@@ -14,7 +14,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link to={localePath("/")} className="flex items-center gap-3">
-            <img src={logo} alt="ErokiLab" className="h-10 lg:h-12 w-auto rounded" />
+            <img src={logo} alt="ErokiLab" className="h-14 lg:h-16 w-auto rounded" />
             <span className="font-heading text-lg lg:text-xl font-bold text-foreground tracking-tight">
               EROKI<span className="text-accent">LAB</span>
             </span>
