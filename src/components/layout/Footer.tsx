@@ -47,13 +47,15 @@ const Footer = () => {
             <p className="text-sm text-muted-foreground mb-3">Armenia, Yerevan</p>
             <ul className="space-y-2">
               <li className="text-sm text-muted-foreground">Email: info@erokilab.com</li>
+              <li className="text-sm text-muted-foreground">Tel / WhatsApp / Viber:</li>
+              <li className="text-sm text-muted-foreground">+374 180 478</li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-border/50 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-muted-foreground">© 2023 ErokiLab. {t("footer.rights")}</p>
-          <p className="text-xs text-muted-foreground">Tel/WhatsApp/Viber: +374 180 478</p>
+          
           <div className="flex gap-6">
             <span className="text-xs text-muted-foreground hover:text-accent cursor-pointer transition-colors">{t("footer.privacy")}</span>
             <span className="text-xs text-muted-foreground hover:text-accent cursor-pointer transition-colors">{t("footer.terms")}</span>
