@@ -1,17 +1,31 @@
 import { useState } from "react";
 import { useLanguage } from "@/i18n/LanguageContext";
-import { Send } from "lucide-react";
+import { Send, Loader2 } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 const ContactPage = () => {
   const { t } = useLanguage();
   const [form, setForm] = useState({ name: "", email: "", phone: "", country: "", message: "" });
+  const [sending, setSending] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Message sent! We'll get back to you soon.");
-    setForm({ name: "", email: "", phone: "", country: "", message: "" });
+    setSending(true);
+    try {
+      const { data, error } = await supabase.functions.invoke("send-contact-email", {
+        body: form,
+      });
+      if (error) throw error;
+      toast.success(t("contact.success") || "Message sent! We'll get back to you soon.");
+      setForm({ name: "", email: "", phone: "", country: "", message: "" });
+    } catch (err) {
+      console.error(err);
+      toast.error(t("contact.error") || "Failed to send message. Please try again.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -58,10 +72,20 @@ const ContactPage = () => {
               </div>
               <button
                 type="submit"
-                className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-accent text-accent-foreground font-semibold rounded-lg hover:bg-turquoise-hover transition-colors shadow-card"
+                disabled={sending}
+                className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-accent text-accent-foreground font-semibold rounded-lg hover:bg-turquoise-hover transition-colors shadow-card disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {t("contact.submit")}
-                <Send className="h-4 w-4" />
+                {sending ? (
+                  <>
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    {t("contact.submit")}
+                    <Send className="h-4 w-4" />
+                  </>
+                )}
               </button>
             </form>
           </div>
