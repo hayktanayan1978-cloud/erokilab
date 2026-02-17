@@ -48,7 +48,7 @@ const Footer = () => {
             <ul className="space-y-2">
               <li className="text-sm text-muted-foreground">Email: info@erokilab.com</li>
               <li className="text-sm text-muted-foreground">Tel / WhatsApp / Viber:</li>
-              <li className="text-sm text-muted-foreground">+374 180 478</li>
+              <li className="text-sm text-muted-foreground">+374 98 180 478</li>
             </ul>
           </div>
         </div>
