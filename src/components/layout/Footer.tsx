@@ -44,9 +44,10 @@ const Footer = () => {
           {/* Contact */}
           <div>
             <h4 className="font-heading font-semibold text-foreground mb-4">{t("footer.contact")}</h4>
+            <p className="text-sm text-muted-foreground mb-3">Armenia, Yerevan</p>
             <ul className="space-y-2">
-              <li className="text-sm text-muted-foreground">info@erokilab.com</li>
-              <li className="text-sm text-muted-foreground">+374 98 22 08 10</li>
+              <li className="text-sm text-muted-foreground">Tel/WhatsApp/Viber: +374 180 478</li>
+              <li className="text-sm text-muted-foreground">Email: info@erokilab.com</li>
             </ul>
           </div>
         </div>
