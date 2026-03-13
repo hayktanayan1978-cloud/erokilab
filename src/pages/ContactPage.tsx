@@ -41,7 +41,7 @@ const ContactPage = () => {
             <h1 className="font-heading text-4xl lg:text-5xl font-bold text-foreground text-center mb-4">
               {t("contact.title")}
             </h1>
-            <p className="text-center text-muted-foreground mb-12">info@erokilab.com · +374 XX XXX XXX</p>
+            <p className="text-center text-muted-foreground mb-12">info@erokilab.com · +374 98 180 478</p>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               {[
