@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { ArrowRight, CheckCircle, Factory, Pill, Tag, BarChart3 } from "lucide-react";
@@ -6,6 +7,11 @@ import flacons from "@/assets/erokilab-flacons.jpeg";
 
 const TradePage = () => {
   const { t, localePath } = useLanguage();
+
+  useEffect(() => {
+    document.title = "European Supplement Distribution | ErokiLab";
+    document.querySelector('meta[name="description"]')?.setAttribute("content", "ErokiLab sources and distributes European-made food supplements across the EAEU market.");
+  }, []);
 
   const whatWeDo = [
     { icon: Factory, key: "trade.what.manufacturing", desc: "trade.what.manufacturing.desc" },

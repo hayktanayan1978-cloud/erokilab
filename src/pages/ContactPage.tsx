@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { Send, Loader2 } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
@@ -9,6 +9,11 @@ const ContactPage = () => {
   const { t } = useLanguage();
   const [form, setForm] = useState({ name: "", email: "", phone: "", country: "", message: "" });
   const [sending, setSending] = useState(false);
+
+  useEffect(() => {
+    document.title = "Contact ErokiLab | Get in Touch";
+    document.querySelector('meta[name="description"]')?.setAttribute("content", "Contact ErokiLab for regulatory consulting and market entry support in Armenia and EAEU.");
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
