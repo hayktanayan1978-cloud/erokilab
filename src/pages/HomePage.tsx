@@ -9,6 +9,11 @@ import products from "@/assets/erokilab-products.jpeg";
 const HomePage = () => {
   const { t, localePath } = useLanguage();
 
+  useEffect(() => {
+    document.title = "ErokiLab | EAEU Regulatory & Market Entry Expert";
+    document.querySelector('meta[name="description"]')?.setAttribute("content", "ErokiLab provides expert SGR registration and consulting services for food supplements entering the EAEU market.");
+  }, []);
+
   const countries = [
     { key: "country.russia", flag: "🇷🇺" },
     { key: "country.belarus", flag: "🇧🇾" },
