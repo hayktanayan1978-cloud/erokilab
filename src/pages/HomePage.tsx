@@ -1,18 +1,21 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { ArrowRight, Shield, CheckCircle, Globe, Handshake, MapPin } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
+import { useSeoMeta } from "@/hooks/useSeoMeta";
 import heroBg from "@/assets/hero-bg.jpg";
 import products from "@/assets/erokilab-products.jpeg";
 
+const homeMeta = {
+  en: { title: "ErokiLab | EAEU Regulatory & Market Entry Expert", description: "ErokiLab provides expert SGR registration and consulting services for food supplements entering the EAEU market." },
+  ru: { title: "Регистрация СГР и консалтинг в ЕАЭС | ErokiLab", description: "Профессиональные услуги по регистрации БАД и получению СГР для выхода на рынок ЕАЭС с ErokiLab." },
+  zh: { title: "欧亚经济联盟 SGR 注册与咨询 | ErokiLab", description: "ErokiLab 为进入欧亚经济联盟市场的膳食补充剂提供专业的 SGR 注册和市场准入咨询服务。" },
+  es: { title: "Registro SGR y Consultoría en la UEE | ErokiLab", description: "ErokiLab ofrece servicios expertos de registro SGR y consultoría para la entrada de suplementos alimenticios al mercado de la UEE." },
+};
+
 const HomePage = () => {
   const { t, localePath } = useLanguage();
-
-  useEffect(() => {
-    document.title = "ErokiLab | EAEU Regulatory & Market Entry Expert";
-    document.querySelector('meta[name="description"]')?.setAttribute("content", "ErokiLab provides expert SGR registration and consulting services for food supplements entering the EAEU market.");
-  }, []);
+  useSeoMeta(homeMeta);
 
   const countries = [
     { key: "country.russia", flag: "🇷🇺" },

@@ -1,17 +1,20 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { ArrowRight, CheckCircle, Factory, Pill, Tag, BarChart3 } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
+import { useSeoMeta } from "@/hooks/useSeoMeta";
 import flacons from "@/assets/erokilab-flacons.jpeg";
+
+const tradeMeta = {
+  en: { title: "European Supplement Distribution | ErokiLab", description: "ErokiLab sources and distributes European-made food supplements across the EAEU market." },
+  ru: { title: "Дистрибуция европейских БАД | ErokiLab", description: "ErokiLab осуществляет поставки и дистрибуцию европейских БАД на рынке ЕАЭС." },
+  zh: { title: "欧洲膳食补充剂分销 | ErokiLab", description: "ErokiLab 在欧亚经济联盟市场采购和分销欧洲制造的膳食补充剂。" },
+  es: { title: "Distribución de Suplementos Europeos | ErokiLab", description: "ErokiLab distribuye suplementos alimenticios fabricados en Europa en el mercado de la UEE." },
+};
 
 const TradePage = () => {
   const { t, localePath } = useLanguage();
-
-  useEffect(() => {
-    document.title = "European Supplement Distribution | ErokiLab";
-    document.querySelector('meta[name="description"]')?.setAttribute("content", "ErokiLab sources and distributes European-made food supplements across the EAEU market.");
-  }, []);
+  useSeoMeta(tradeMeta, "/trade");
 
   const whatWeDo = [
     { icon: Factory, key: "trade.what.manufacturing", desc: "trade.what.manufacturing.desc" },

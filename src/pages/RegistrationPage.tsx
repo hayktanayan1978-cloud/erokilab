@@ -1,16 +1,19 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { ArrowRight, Shield, FileText, FlaskConical, Send, Award, CheckCircle } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
+import { useSeoMeta } from "@/hooks/useSeoMeta";
+
+const registrationMeta = {
+  en: { title: "SGR Registration Services | ErokiLab", description: "Professional support for obtaining State Registration Certificates (SGR) for food supplements in EAEU." },
+  ru: { title: "Услуги регистрации СГР | ErokiLab", description: "Профессиональная поддержка в получении свидетельств о государственной регистрации (СГР) для БАД в ЕАЭС." },
+  zh: { title: "SGR 注册服务 | ErokiLab", description: "为欧亚经济联盟的膳食补充剂提供专业的国家注册证书 (SGR) 获取支持。" },
+  es: { title: "Servicios de Registro SGR | ErokiLab", description: "Soporte profesional para obtener Certificados de Registro Estatal (SGR) para suplementos alimenticios en la UEE." },
+};
 
 const RegistrationPage = () => {
   const { t, localePath } = useLanguage();
-
-  useEffect(() => {
-    document.title = "SGR Registration Services | ErokiLab";
-    document.querySelector('meta[name="description"]')?.setAttribute("content", "Professional support for obtaining State Registration Certificates (SGR) for food supplements in EAEU.");
-  }, []);
+  useSeoMeta(registrationMeta, "/registration");
 
   const whyUsItems = [
     "reg.whyus.guaranteed",
