@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { ArrowRight, Shield, FileText, FlaskConical, Send, Award, CheckCircle } from "lucide-react";
@@ -5,6 +6,11 @@ import AnimatedSection from "@/components/AnimatedSection";
 
 const RegistrationPage = () => {
   const { t, localePath } = useLanguage();
+
+  useEffect(() => {
+    document.title = "SGR Registration Services | ErokiLab";
+    document.querySelector('meta[name="description"]')?.setAttribute("content", "Professional support for obtaining State Registration Certificates (SGR) for food supplements in EAEU.");
+  }, []);
 
   const whyUsItems = [
     "reg.whyus.guaranteed",
