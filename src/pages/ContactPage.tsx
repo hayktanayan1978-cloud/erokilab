@@ -1,19 +1,23 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { Send, Loader2 } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import { useSeoMeta } from "@/hooks/useSeoMeta";
+
+const contactMeta = {
+  en: { title: "Contact ErokiLab | Get in Touch", description: "Contact ErokiLab for regulatory consulting and market entry support in Armenia and EAEU." },
+  ru: { title: "Контакты ErokiLab | Свяжитесь с нами", description: "Свяжитесь с ErokiLab для получения консультаций по регулированию и выходу на рынок ЕАЭС." },
+  zh: { title: "联系 ErokiLab | 取得联系", description: "联系 ErokiLab 获取亚美尼亚和欧亚经济联盟的法规咨询和市场准入支持。" },
+  es: { title: "Contactar ErokiLab | Ponte en Contacto", description: "Contacta a ErokiLab para consultoría regulatoria y soporte de entrada al mercado en Armenia y la UEE." },
+};
 
 const ContactPage = () => {
   const { t } = useLanguage();
   const [form, setForm] = useState({ name: "", email: "", phone: "", country: "", message: "" });
   const [sending, setSending] = useState(false);
-
-  useEffect(() => {
-    document.title = "Contact ErokiLab | Get in Touch";
-    document.querySelector('meta[name="description"]')?.setAttribute("content", "Contact ErokiLab for regulatory consulting and market entry support in Armenia and EAEU.");
-  }, []);
+  useSeoMeta(contactMeta, "/contact");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
