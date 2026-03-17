@@ -3,6 +3,7 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import { ArrowRight, Shield, CheckCircle, Globe, Handshake, MapPin } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import { useSeoMeta } from "@/hooks/useSeoMeta";
+import { useEffect } from "react";
 import heroBg from "@/assets/hero-bg.jpg";
 import products from "@/assets/erokilab-products.jpeg";
 
@@ -13,9 +14,37 @@ const homeMeta = {
   es: { title: "Registro SGR y Consultoría en la UEE | ErokiLab", description: "ErokiLab ofrece servicios expertos de registro SGR y consultoría para la entrada de suplementos alimenticios al mercado de la UEE." },
 };
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "ErokiLab",
+  url: "https://erokilab.com",
+  logo: "https://erokilab.com/favicon.png",
+  description: "Expert SGR registration and consulting services for food supplements entering the EAEU market.",
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+374-98-180-478",
+    email: "info@erokilab.com",
+    contactType: "customer service",
+    availableLanguage: ["English", "Russian", "Chinese", "Spanish"],
+  },
+  sameAs: [],
+};
+
 const HomePage = () => {
   const { t, localePath } = useLanguage();
   useSeoMeta(homeMeta);
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.text = JSON.stringify(organizationSchema);
+    script.id = "org-jsonld";
+    document.head.appendChild(script);
+    return () => {
+      document.getElementById("org-jsonld")?.remove();
+    };
+  }, []);
 
   const countries = [
     { key: "country.russia", flag: "🇷🇺" },
