@@ -7,6 +7,7 @@ interface SeoMeta {
 }
 
 const BASE_URL = "https://erokilab.com";
+const OG_IMAGE = `${BASE_URL}/favicon.png`;
 
 export function useSeoMeta(meta: SeoMeta, pagePath: string = "") {
   const { lang } = useLanguage();
@@ -18,7 +19,25 @@ export function useSeoMeta(meta: SeoMeta, pagePath: string = "") {
       document
         .querySelector('meta[name="description"]')
         ?.setAttribute("content", current.description);
+      document
+        .querySelector('meta[property="og:title"]')
+        ?.setAttribute("content", current.title);
+      document
+        .querySelector('meta[property="og:description"]')
+        ?.setAttribute("content", current.description);
+      document
+        .querySelector('meta[name="twitter:title"]')
+        ?.setAttribute("content", current.title);
+      document
+        .querySelector('meta[name="twitter:description"]')
+        ?.setAttribute("content", current.description);
     }
+    document
+      .querySelector('meta[property="og:image"]')
+      ?.setAttribute("content", OG_IMAGE);
+    document
+      .querySelector('meta[name="twitter:image"]')
+      ?.setAttribute("content", OG_IMAGE);
 
     // Manage hreflang tags
     const langs: Lang[] = ["en", "ru", "zh", "es"];
